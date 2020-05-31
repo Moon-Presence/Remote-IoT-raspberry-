@@ -8,12 +8,9 @@ import { HttpClient} from '@angular/common/http';
 export class AppComponent {
   title = 'front-app';
   apiUrl='http://localhost:8000';
-  //requestApiUrl='http://localhost:8000/forward';
-  //request = new HttpRequest<string>("GET",this.requestApiUrl);
-  constructor( private http: HttpClient){ /*location.replace('http://notlocalhost');*/}
+  constructor( private http: HttpClient){ }
 
   forwardMove(){
-    //this.http.request(this.request).subscribe(data=>console.log(data));
     this.http.get(this.apiUrl+'/forward').subscribe(data=>console.log(data));
   };
   backwardMove(){
@@ -23,6 +20,6 @@ export class AppComponent {
     this.http.get(this.apiUrl+'/rightward').subscribe(data=>console.log(data));
   };
   leftwardMove(){
-    this.http.get('http://localhost:8000/leftward').subscribe(data=>console.log(data));
+    this.http.get(this.apiUrl+'/leftward').subscribe(data=>console.log(data));
   };
 }
